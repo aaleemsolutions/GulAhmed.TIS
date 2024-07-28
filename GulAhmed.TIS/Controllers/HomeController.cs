@@ -1,11 +1,13 @@
 using GulAhmed.TIS.Core.Interface;
 using GulAhmed.TIS.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Oracle.ManagedDataAccess.Client;
 using System.Diagnostics;
 
 namespace GulAhmed.TIS.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;

@@ -2,10 +2,12 @@
 using GulAhmed.TIS.Controllers;
 using GulAhmed.TIS.Core.Implementation;
 using GulAhmed.TIS.Core.Interface;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GulAhmed.TIS.WEB.Controllers
 {
+    [Authorize]
     public class SetupController : Controller
     {
         private readonly ILogger<SetupController> _logger;

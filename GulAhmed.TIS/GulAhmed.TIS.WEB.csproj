@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\GulAhmed.Repository.cs\GulAhmed.TIS.Repository.csproj" />
     <ProjectReference Include="..\GulAhmed.TIS.Core\GulAhmed.TIS.Core.csproj" />
   </ItemGroup>
 

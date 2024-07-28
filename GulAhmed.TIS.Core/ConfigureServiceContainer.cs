@@ -15,7 +15,10 @@ namespace GulAhmed.TIS.Core
     {
         public static void AddServices(this IServiceCollection services)
         {
+            services.AddHttpContextAccessor();
             services.AddSingleton<IUserService, UserService>();
+            services.AddSingleton<IAccountService, AccountService>();
+
         }
     }
 }

@@ -26,12 +26,7 @@ namespace GulAhmed.TIS.Repository.Implementation
         {
             using (var connection = new OracleConnection(_connectionString))
             {
-                if (connection.State != System.Data.ConnectionState.Open)
-                {
-
-                }
-
-
+ 
                 return connection.Query<RoleDTO>("SELECT * FROM GTM_EMP_COMPLETE_V va where va.FULL_NAME like '%Samreen Kiran%'");
             }
         }
@@ -52,7 +47,7 @@ namespace GulAhmed.TIS.Repository.Implementation
                 SELECT 
                         row_number() over ( order by seqid ) as rnum, t.* 
                 FROM 
-                    TIS_tbl_Role t
+                    appshr.TIS_tbl_Role t
             ) 
             WHERE 
                 rnum BETWEEN :startRowIndex AND :endRowIndex";
@@ -65,7 +60,7 @@ namespace GulAhmed.TIS.Repository.Implementation
                 var result = await connection.QueryAsync<RoleDTO>(sqlQuery, new { startRowIndex, endRowIndex });
 
                 // Get total count of records (for recordsTotal and recordsFiltered)
-                var totalCount = await connection.ExecuteScalarAsync<int>("SELECT COUNT(*) FROM TIS_tbl_Role");
+                var totalCount = await connection.ExecuteScalarAsync<int>("SELECT COUNT(*) FROM appshr.TIS_tbl_Role");
 
                 // Return DTResult with data and counts
                 return new DTResult<RoleDTO>
